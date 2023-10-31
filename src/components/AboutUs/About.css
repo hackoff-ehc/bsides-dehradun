@@ -1,0 +1,116 @@
+
+  
+  .about{
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .about-container{
+    width: 80%;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .text-wrapper{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: whitesmoke;
+    padding: 50px 50px;
+    gap: 25px;
+  }
+  
+  .text-wrapper h2{
+    font-size: 2.3rem;
+    font-weight: 800;
+  }
+  
+  .text-wrapper p{
+    line-height: 1.6em;
+    font-weight: 350;
+  }
+  
+  .text-wrapper span{
+    color: #5048CD;
+  }
+  
+  .btn-about{
+    width: 120px;
+    height: 45px;
+    border: 2px solid #FF652F;
+    background: transparent;
+    color: whitesmoke;
+  }
+  
+  
+  
+  .img-wrapper{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+  }
+  
+  .box{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(164, 85, 21);
+    border: 3px solid black;
+    color: black;
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+
+  .box h1{
+    font-weight: bolder;
+
+  }
+
+
+  
+  .underline{
+    width: 90%;
+    height: 2px;
+    background-color: #021713;
+  }
+  
+  .location{
+    position: relative;
+    top: 30px;
+    z-index: 3;
+    background-color: #c0af12fa;
+  }
+  
+  .venue{
+    position: relative;
+    left: 120px;
+    z-index: 2;
+    background-color: #11a168;
+  
+  }
+  
+  .date{
+    position: relative;
+    bottom: 30px;
+    z-index: 1;
+  }

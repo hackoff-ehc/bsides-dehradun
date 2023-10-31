@@ -16,6 +16,7 @@ html {
 
 body {
   background: #000;
+  overflow-x: hidden;
 }
 
 svg,
