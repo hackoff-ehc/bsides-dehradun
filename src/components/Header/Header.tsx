@@ -10,7 +10,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="py-[clamp(12px,1vw,20px)] px-[clamp(24px,2.6vw,48px)] bg-[rgba(255,255,255,0.50)] w-3/4 flex justify-between items-center m-auto rounded-bl rounded-br gap-3">
+    <header className="py-[clamp(12px,1vw,20px)] px-[clamp(24px,2.6vw,48px)] bg-[rgba(255,255,255,0.50)] w-3/4 flex justify-between items-center m-auto rounded-bl rounded-br gap-3 fixed top-0 left-1/2 -translate-x-1/2 z-50">
       <Box minWidth={100}>
         <HeaderLogo />
       </Box>
@@ -46,7 +46,7 @@ export function Header() {
                 x2="40"
                 y2="1.5"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
               <line
                 id="Line 35"
@@ -55,7 +55,7 @@ export function Header() {
                 x2="40"
                 y2="21.5"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
               <line
                 id="Line 34"
@@ -63,7 +63,7 @@ export function Header() {
                 x2="40"
                 y2="11.5"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
             </g>
           </svg>
