@@ -8,7 +8,7 @@ import About from "@/components/AboutUs/About";
 
 export default function Home() {
   return (
-    <main>
+    <main className="h-[500vh]">
       <Hero />
       <About />
     </main>

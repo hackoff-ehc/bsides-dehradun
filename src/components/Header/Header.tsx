@@ -1,16 +1,54 @@
-import HeaderLogo from "./Logo";
+"use client";
+
+import { useEffect, useState, useRef } from "react";
 import { Box, Button, Typography } from "@mui/material";
+import HeaderLogo from "./Logo";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "CFP", href: "#" },
   { label: "Sponsorship", href: "#" },
-  { label: "Registration", href: "#" },
   { label: "Buy Tickets", href: "#" },
 ];
 
+const windowHeight = window.innerHeight;
+
 export function Header() {
+  const [headerTop, setHeaderTop] = useState<number>(0);
+  const headerRef = useRef<null | HTMLHeadElement>(null);
+
+  useEffect(() => {
+    let previousScroll = 0;
+
+    const scrollHandler = () => {
+      const headerHeight = headerRef.current?.clientHeight || 100;
+      const currentScroll = window.scrollY;
+      if (currentScroll > previousScroll) {
+        if (currentScroll > windowHeight / 2) {
+          setHeaderTop((prev) =>
+            currentScroll > windowHeight
+              ? headerHeight * -1
+              : Math.max(headerHeight * -1, prev - 1)
+          );
+        }
+      } else {
+        setHeaderTop((prev) => Math.min(prev + 10, 0));
+      }
+      previousScroll = currentScroll;
+    };
+
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
+
   return (
-    <header className="py-[clamp(12px,1vw,20px)] px-[clamp(24px,2.6vw,48px)] bg-[rgba(255,255,255,0.50)] w-3/4 flex justify-between items-center m-auto rounded-bl rounded-br gap-3 fixed top-0 left-1/2 -translate-x-1/2 z-50">
+    <motion.header
+      ref={headerRef}
+      className="py-[clamp(12px,1vw,20px)] px-[clamp(24px,2.6vw,48px)] bg-[rgba(255,255,255,0.50)] w-3/4 flex justify-between items-center m-auto rounded-bl rounded-br gap-3 fixed left-1/2 -translate-x-1/2 z-50"
+      initial={{ top: 0 }}
+      animate={{ top: headerTop }}
+    >
       <Box minWidth={100}>
         <HeaderLogo />
       </Box>
@@ -69,6 +107,6 @@ export function Header() {
           </svg>
         </Button>
       </nav>
-    </header>
+    </motion.header>
   );
 }
