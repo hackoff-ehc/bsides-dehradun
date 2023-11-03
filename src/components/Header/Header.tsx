@@ -11,8 +11,6 @@ const navLinks = [
   { label: "Buy Tickets", href: "#" },
 ];
 
-const windowHeight = window.innerHeight;
-
 export function Header() {
   const [headerTop, setHeaderTop] = useState<number>(0);
   const headerRef = useRef<null | HTMLHeadElement>(null);
@@ -24,9 +22,9 @@ export function Header() {
       const headerHeight = headerRef.current?.clientHeight || 100;
       const currentScroll = window.scrollY;
       if (currentScroll > previousScroll) {
-        if (currentScroll > windowHeight / 2) {
+        if (currentScroll > window.innerHeight / 2) {
           setHeaderTop((prev) =>
-            currentScroll > windowHeight
+            currentScroll > window.innerHeight
               ? headerHeight * -1
               : Math.max(headerHeight * -1, prev - 1)
           );
