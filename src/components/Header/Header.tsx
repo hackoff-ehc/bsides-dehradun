@@ -16,28 +16,32 @@ export function Header() {
   const headerRef = useRef<null | HTMLHeadElement>(null);
 
   useEffect(() => {
-    let previousScroll = 0;
+    if (typeof window !== "undefined") {
+      let previousScroll = 0;
 
-    const scrollHandler = () => {
-      const headerHeight = headerRef.current?.clientHeight || 100;
-      const currentScroll = window.scrollY;
-      if (currentScroll > previousScroll) {
-        if (currentScroll > window.innerHeight / 2) {
+      const scrollHandler = () => {
+        const headerHeight = headerRef.current?.clientHeight || 100;
+        const currentScroll = window.scrollY;
+        if (currentScroll > previousScroll) {
+          if (currentScroll > window.innerHeight / 2) {
+            setHeaderTop((prev) =>
+              currentScroll > window.innerHeight
+                ? headerHeight * -1
+                : Math.max(headerHeight * -1, prev - 1)
+            );
+          }
+        } else {
           setHeaderTop((prev) =>
-            currentScroll > window.innerHeight
-              ? headerHeight * -1
-              : Math.max(headerHeight * -1, prev - 1)
+            currentScroll < window.innerHeight ? 0 : Math.min(prev + 10, 0)
           );
         }
-      } else {
-        setHeaderTop((prev) => Math.min(prev + 10, 0));
-      }
-      previousScroll = currentScroll;
-    };
+        previousScroll = currentScroll;
+      };
 
-    window.addEventListener("scroll", scrollHandler);
+      window.addEventListener("scroll", scrollHandler);
 
-    return () => window.removeEventListener("scroll", scrollHandler);
+      return () => window.removeEventListener("scroll", scrollHandler);
+    }
   }, []);
 
   return (

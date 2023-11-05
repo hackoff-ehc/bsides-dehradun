@@ -2,21 +2,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Hero() {
   const [logoTop, setLogoTop] = useState<number>(0);
+  const windowHeightRef = useRef<number>(0);
 
   useEffect(() => {
-    const windowHeight = window.innerHeight;
+    if (typeof window !== "undefined") {
+      windowHeightRef.current = window.innerHeight;
+      const handleScroll = () => {
+        setLogoTop(Math.min(window.scrollY, windowHeightRef.current));
+      };
 
-    const handleScroll = () => {
-      setLogoTop(Math.min(window.scrollY, windowHeight));
-    };
+      window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   return (
@@ -29,11 +31,11 @@ export function Hero() {
       <motion.img
         src="/assets/home_hero_layer_2.svg"
         alt=""
-        className="absolute left-1/2 top-[35%] max-w-[min(80%,512px)] z-10 transition-transform"
+        className="absolute left-1/2  z-10 transition-transform top-[39%] max-w-[80%] sm:top-[35%] sm:max-w-[75%] md:max-w-[60%] md:top-[30%] lg:max-w-[55%] xl:top-[25%] xl:max-w-[50%]"
         // style={{
         //   translate: `-50% ${logoTop}px`,
         // }}
-        initial={{ translateY: window.innerHeight, translateX: "-50%" }}
+        initial={{ translateY: windowHeightRef.current, translateX: "-50%" }}
         animate={{ translateY: logoTop, translateX: "-50%" }}
       />
       <img
