@@ -1,7 +1,7 @@
 import React from "react";
 import "./Interest.css";
 
-function Interest() {
+export function Interest() {
   return (
     <div className="boxes">
       <div className="box1">
@@ -63,4 +63,3 @@ function Interest() {
     </div>
   );
 }
-export default Interest;

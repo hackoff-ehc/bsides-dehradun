@@ -1,11 +1,8 @@
-import { Hero } from "@/components/Home";
+import { About, Interest, Hero } from "@/components/Home";
 
 export const metadata = {
   title: "Rom Rom Rom",
 };
-
-import About from "@/components/AboutUs/About";
-import Interest from "@/components/Interest/Interest";
 
 export default function Home() {
   return (
