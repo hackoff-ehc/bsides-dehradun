@@ -1,0 +1,14 @@
+:root {
+  --primary-light-text-clr: #fff;
+  --secondary-light-text-clr: rgba(255, 255, 255, 0.7);
+  --primary-dark-text-clr: #000;
+  --primary-purple-clr: #6104d7;
+  --primary-red-clr: #ec0033;
+
+  --navbar-bg-clr: #959595;
+  --primary-body-bg-clr: #0c0909;
+
+  --h2-font-size: clamp(36px, 3.175vw, 48px);
+  --para-font-size: clamp(15px, 1.323vw, 20px);
+  --btn-font-size: var(--para-font-size);
+}

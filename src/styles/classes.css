@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section-padding-x {
+    @apply px-[36px] tablet:px-[56px] laptop:px-[clamp(117px,10.317vw,156px)];
+  }
+
+  .section-padding-y {
+    @apply py-[clamp(60px,5.291vw,80px)];
+  }
+}
