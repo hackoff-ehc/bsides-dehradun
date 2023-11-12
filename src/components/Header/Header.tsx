@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import HeaderLogo from "./Logo";
 import { motion } from "framer-motion";
+import { Logo } from "@/components";
 
 const navLinks = [
   { label: "CFP", href: "#" },
@@ -47,12 +47,12 @@ export function Header() {
   return (
     <motion.header
       ref={headerRef}
-      className="py-[clamp(12px,1vw,20px)] px-[clamp(24px,2.6vw,48px)] bg-[rgba(255,255,255,0.50)] w-3/4 flex justify-between items-center m-auto rounded-bl rounded-br gap-3 fixed left-1/2 -translate-x-1/2 z-50"
+      className="py-[clamp(12px,1vw,20px)] px-[clamp(24px,2.6vw,48px)] bg-navbar w-3/4 flex justify-between items-center m-auto rounded-bl rounded-br gap-3 fixed left-1/2 -translate-x-1/2 z-50"
       initial={{ top: 0 }}
       animate={{ top: headerTop }}
     >
-      <Box minWidth={100}>
-        <HeaderLogo />
+      <Box width="clamp(100px,9.5vw,200px)">
+        <Logo />
       </Box>
       <nav className="flex items-center">
         <ul className="flex items-center gap-[clamp(20px,2.75vw,75px)]">
